@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Indicadores Econômicos</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f4f4f4; }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 { text-align: center; }
+    .indicador {
+      margin: 15px 0;
+      padding: 15px;
+      background: #e9ecef;
+      border-left: 5px solid #007BFF;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Indicadores Econômicos Atuais</h2>
+    <div id="indicadores"></div>
+    <button onclick="atualizarIndicadores()">Atualizar</button>
+  </div>
+
+  <script>
+    function atualizarIndicadores() {
+      const indicadores = {
+        "Selic": "13.75%",
+        "IPCA": "11.89%",
+        "PIB Trimestral": "+1.2%",
+        "Dólar": "R$ 5.23",
+        "IBOVESPA": "125.400 pts",
+        "Desemprego": "8.1%"
+      };
+
+      let html = '';
+      for (let [nome, valor] of Object.entries(indicadores)) {
+        html += `<div class="indicador"><strong>${nome}:</strong> ${valor}</div>`;
+      }
+
+      document.getElementById('indicadores').innerHTML = html;
+    }
+
+    // Carrega na inicialização
+    window.onload = atualizarIndicadores;
+  </script>
+</body>
+</html>
